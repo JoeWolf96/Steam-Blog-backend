@@ -8,6 +8,8 @@ const cors = require('cors')
 const session = require('express-session');
 const MongoDBStore = require('connect-mongodb-session')(session);
 
+const url='https://api.steampowered.com/ISteamApps/GetAppList/v2/'
+
 // MIDDLEWARE
 // Setup Cors middleware
 const whitelist = ['http://localhost:3000', process.env.BASEURL]
@@ -29,14 +31,14 @@ app.use(session({
 	secret: 'lol',
 	resave: false,
 	saveUninitialized: false,
-		uri: 'mongodb://127.0.0.1:27017/forum',
+		uri: 'mongodb://127.0.0.1:27017/steam',
 		collection: 'mySessions'
 	}))
 
 
 //  mongoose
 const db = mongoose.connection;
-mongoose.connect('mongodb://127.0.0.1:27017/forum',{
+mongoose.connect('mongodb://127.0.0.1:27017/steam',{
 	useNewUrlParser:true,
 	useUnifiedTopology: true,
 	useFindAndModify: false

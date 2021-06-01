@@ -5,7 +5,7 @@ const { Schema, model } = mongoose;
 const usersSchema = new Schema({
     username: { type: String, required: true },
     password: { type: String, required: true },
-    topics: [{
+    posts: [{
         type: Schema.Types.ObjectId,
         ref: 'Posts',
     }]

@@ -80,7 +80,7 @@ postsModel.findByIdAndUpdate(req.params.id, req.body, {new:true}, (error, update
 		}
 		else{
 			return res.status(200).json({
-				message: `Topic ${updatedPosts.id} updated successfully`,
+				message: `Post ${updatedPosts.id} updated successfully`,
 				data: updatedPosts
 			})
 		}
