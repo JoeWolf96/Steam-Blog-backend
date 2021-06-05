@@ -5,7 +5,6 @@ const userModel = require('../models/userModel');
 
 
 
-// GET (index) list of holidays
 posts.get('/', (req, res)=>{
 
 	userModel.findById(req.session.currentUser._id).populate('posts').exec(( error, foundUser ) => {

@@ -12,7 +12,7 @@ const url='https://api.steampowered.com/ISteamApps/GetAppList/v2/'
 
 // MIDDLEWARE
 // Setup Cors middleware
-const whitelist = ['http://localhost:3000', process.env.BASEURL]
+const whitelist = ['http://localhost:3000', process.env.BASEURL,'https://api.steampowered.com/ISteamApps/GetAppList/v2/?key=788BB881FB9E4532A765F61E7C1D7847&format=json']
 const corsOptions = {
 	origin: (origin, callback) => {
 		if (whitelist.indexOf(origin) !== -1 || !origin) {
@@ -61,7 +61,7 @@ app.use(express.json());
 
 // controllers
 app.use('/blog', require('./controllers/blogController'))
-//app.use('/posts', require('./controllers/postController'))
+app.use('/steam', require('./controllers/steamController'))
 app.use('/users', require('./controllers/userController'))
 
 
